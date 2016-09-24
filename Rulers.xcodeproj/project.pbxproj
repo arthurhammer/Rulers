@@ -73,6 +73,7 @@
 		0064F70D1D95CDF7002E82B0 = {
 			isa = PBXGroup;
 			children = (
+				00BDA8301D96668E00C54740 /* play.playground */,
 				0064F7181D95CDF7002E82B0 /* Rulers */,
 				0064F7281D95CDF7002E82B0 /* RulersTests */,
 				0064F7331D95CDF7002E82B0 /* RulersUITests */,
