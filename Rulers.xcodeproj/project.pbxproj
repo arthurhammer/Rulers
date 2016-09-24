@@ -12,6 +12,9 @@
 		0064F71F1D95CDF7002E82B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0064F71D1D95CDF7002E82B0 /* MainMenu.xib */; };
 		0064F72A1D95CDF7002E82B0 /* RulersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7291D95CDF7002E82B0 /* RulersTests.swift */; };
 		0064F7351D95CDF7002E82B0 /* RulersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7341D95CDF7002E82B0 /* RulersUITests.swift */; };
+		0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7431D95D37F002E82B0 /* WindowConfig.swift */; };
+		0064F7461D95D808002E82B0 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7451D95D808002E82B0 /* Dimension.swift */; };
+		0064F7481D95D83F002E82B0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7471D95D83F002E82B0 /* Preset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,10 @@
 		0064F7301D95CDF7002E82B0 /* RulersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RulersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064F7341D95CDF7002E82B0 /* RulersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulersUITests.swift; sourceTree = "<group>"; };
 		0064F7361D95CDF7002E82B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0064F7431D95D37F002E82B0 /* WindowConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowConfig.swift; sourceTree = "<group>"; };
+		0064F7451D95D808002E82B0 /* Dimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
+		0064F7471D95D83F002E82B0 /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		00BDA8301D96668E00C54740 /* play.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = play.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0064F7191D95CDF7002E82B0 /* AppDelegate.swift */,
+				0064F7421D95D36C002E82B0 /* Model */,
 				0064F71B1D95CDF7002E82B0 /* Assets.xcassets */,
 				0064F71D1D95CDF7002E82B0 /* MainMenu.xib */,
 				0064F7201D95CDF7002E82B0 /* Info.plist */,
@@ -118,6 +126,16 @@
 				0064F7361D95CDF7002E82B0 /* Info.plist */,
 			);
 			path = RulersUITests;
+			sourceTree = "<group>";
+		};
+		0064F7421D95D36C002E82B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0064F7451D95D808002E82B0 /* Dimension.swift */,
+				0064F7471D95D83F002E82B0 /* Preset.swift */,
+				0064F7431D95D37F002E82B0 /* WindowConfig.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */,
 				0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */,
+				0064F7481D95D83F002E82B0 /* Preset.swift in Sources */,
+				0064F7461D95D808002E82B0 /* Dimension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +525,7 @@
 				0064F73B1D95CDF7002E82B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0064F73C1D95CDF7002E82B0 /* Build configuration list for PBXNativeTarget "RulersTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +534,7 @@
 				0064F73E1D95CDF7002E82B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0064F73F1D95CDF7002E82B0 /* Build configuration list for PBXNativeTarget "RulersUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +543,7 @@
 				0064F7411D95CDF7002E82B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
