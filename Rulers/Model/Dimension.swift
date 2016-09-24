@@ -12,7 +12,7 @@ enum Length {
 struct Size {
     var width: Length
     var height: Length
-    static var zero = Size(rawValue: .zero)
+    static var zero = Size(width: 0, height: 0)
 }
 
 
@@ -46,11 +46,13 @@ extension Length: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
 }
 
 
+/*
 extension CGSize {
     init(width: Length, height: Length) {
         self.init(width: width.rawValue, height: height.rawValue)
     }
 }
+
 
 extension Size: RawRepresentable {
     var rawValue: CGSize {
@@ -62,4 +64,22 @@ extension Size: RawRepresentable {
         height = Length(rawValue: Double(rawValue.height))
     }
 }
+*/
 
+
+extension Length: Equatable {
+    /// Note: `.fixed(.infinity)` != `.max`
+    static func == (lhs: Length, rhs: Length) -> Bool {
+        switch (lhs, rhs) {
+        case (.max, .max): return true
+        case let (.fixed(l), .fixed(r)): return l == r
+        default: return false
+        }
+    }
+}
+
+extension Size: Equatable {
+    static func == (lhs: Size, rhs: Size) -> Bool {
+        return (lhs.width, lhs.height) == (rhs.width, rhs.height)
+    }
+}
