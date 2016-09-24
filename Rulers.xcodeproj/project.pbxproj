@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0026526A1D96A23300C13637 /* CG+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002652691D96A23300C13637 /* CG+Convenience.swift */; };
 		0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7191D95CDF7002E82B0 /* AppDelegate.swift */; };
 		0064F71C1D95CDF7002E82B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0064F71B1D95CDF7002E82B0 /* Assets.xcassets */; };
 		0064F71F1D95CDF7002E82B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0064F71D1D95CDF7002E82B0 /* MainMenu.xib */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002652691D96A23300C13637 /* CG+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CG+Convenience.swift"; path = "../CG+Convenience.swift"; sourceTree = "<group>"; };
 		0064F7161D95CDF7002E82B0 /* Rulers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rulers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064F7191D95CDF7002E82B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064F71B1D95CDF7002E82B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0026526B1D96A29F00C13637 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				002652691D96A23300C13637 /* CG+Convenience.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0064F70D1D95CDF7002E82B0 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */,
+				0026526A1D96A23300C13637 /* CG+Convenience.swift in Sources */,
 				0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */,
 				0064F7481D95D83F002E82B0 /* Preset.swift in Sources */,
 				0064F7461D95D808002E82B0 /* Dimension.swift in Sources */,
