@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002652691D96A23300C13637 /* CG+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CG+Convenience.swift"; path = "../CG+Convenience.swift"; sourceTree = "<group>"; };
+		002652691D96A23300C13637 /* CG+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+Convenience.swift"; sourceTree = "<group>"; };
 		0064F7161D95CDF7002E82B0 /* Rulers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rulers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064F7191D95CDF7002E82B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064F71B1D95CDF7002E82B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 			children = (
 				0064F7191D95CDF7002E82B0 /* AppDelegate.swift */,
 				0064F7421D95D36C002E82B0 /* Model */,
+				0026526B1D96A29F00C13637 /* Utilities */,
 				0064F71B1D95CDF7002E82B0 /* Assets.xcassets */,
 				0064F71D1D95CDF7002E82B0 /* MainMenu.xib */,
 				0064F7201D95CDF7002E82B0 /* Info.plist */,
