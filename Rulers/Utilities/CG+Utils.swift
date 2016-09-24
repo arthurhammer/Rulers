@@ -8,4 +8,3 @@ extension NSColor {
 extension Double {
     var cg: CGFloat { return CGFloat(self) }
 }
-
