@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0026526A1D96A23300C13637 /* CG+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002652691D96A23300C13637 /* CG+Convenience.swift */; };
+		0026526D1D96A37C00C13637 /* RulerWindow+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026526C1D96A37C00C13637 /* RulerWindow+Config.swift */; };
+		002652701D96AF1A00C13637 /* RulerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026526F1D96AF1A00C13637 /* RulerContentView.swift */; };
 		0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7191D95CDF7002E82B0 /* AppDelegate.swift */; };
 		0064F71C1D95CDF7002E82B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0064F71B1D95CDF7002E82B0 /* Assets.xcassets */; };
 		0064F71F1D95CDF7002E82B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0064F71D1D95CDF7002E82B0 /* MainMenu.xib */; };
@@ -16,6 +18,7 @@
 		0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7431D95D37F002E82B0 /* WindowConfig.swift */; };
 		0064F7461D95D808002E82B0 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7451D95D808002E82B0 /* Dimension.swift */; };
 		0064F7481D95D83F002E82B0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7471D95D83F002E82B0 /* Preset.swift */; };
+		00BDA8341D9671CA00C54740 /* RulerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BDA8331D9671CA00C54740 /* RulerWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		002652691D96A23300C13637 /* CG+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+Convenience.swift"; sourceTree = "<group>"; };
+		0026526C1D96A37C00C13637 /* RulerWindow+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RulerWindow+Config.swift"; sourceTree = "<group>"; };
+		0026526F1D96AF1A00C13637 /* RulerContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerContentView.swift; sourceTree = "<group>"; };
 		0064F7161D95CDF7002E82B0 /* Rulers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rulers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064F7191D95CDF7002E82B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064F71B1D95CDF7002E82B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 		0064F7451D95D808002E82B0 /* Dimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
 		0064F7471D95D83F002E82B0 /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		00BDA8301D96668E00C54740 /* play.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = play.playground; sourceTree = "<group>"; };
+		00BDA8331D9671CA00C54740 /* RulerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,17 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		0026526E1D96AE7D00C13637 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0026526F1D96AF1A00C13637 /* RulerContentView.swift */,
+				00BDA8331D9671CA00C54740 /* RulerWindow.swift */,
+				0026526C1D96A37C00C13637 /* RulerWindow+Config.swift */,
+			);
+			name = View;
+			path = Rulers/View;
+			sourceTree = SOURCE_ROOT;
+		};
 		0064F70D1D95CDF7002E82B0 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +130,7 @@
 			children = (
 				0064F7191D95CDF7002E82B0 /* AppDelegate.swift */,
 				0064F7421D95D36C002E82B0 /* Model */,
+				0026526E1D96AE7D00C13637 /* View */,
 				0026526B1D96A29F00C13637 /* Utilities */,
 				0064F71B1D95CDF7002E82B0 /* Assets.xcassets */,
 				0064F71D1D95CDF7002E82B0 /* MainMenu.xib */,
@@ -286,10 +304,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */,
+				002652701D96AF1A00C13637 /* RulerContentView.swift in Sources */,
 				0026526A1D96A23300C13637 /* CG+Convenience.swift in Sources */,
+				00BDA8341D9671CA00C54740 /* RulerWindow.swift in Sources */,
 				0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */,
 				0064F7481D95D83F002E82B0 /* Preset.swift in Sources */,
 				0064F7461D95D808002E82B0 /* Dimension.swift in Sources */,
+				0026526D1D96A37C00C13637 /* RulerWindow+Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
