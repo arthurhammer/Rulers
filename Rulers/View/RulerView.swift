@@ -16,11 +16,11 @@ final class RulerView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         // Clear rect
         NSColor.clear.set()
-        NSRectFill(frame)
+        NSRectFill(bounds)
 
         // Draw rounded rect
         backgroundColor.set()
         let radius = cornerRadius.cg
-        NSBezierPath(roundedRect: frame, xRadius: radius, yRadius: radius).fill()
+        NSBezierPath(roundedRect: bounds, xRadius: radius, yRadius: radius).fill()
     }
 }
