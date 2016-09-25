@@ -2,11 +2,18 @@ import Foundation
 import class AppKit.NSColor
 
 struct WindowConfig {
-    var size = Size(width: .max, height: 60)
-    var mouseOffset = Offset(x: 0, y: 0)
+    // Size, position
+    var size = Size(width: nil, height: 80)
+    var mouseOffset = Offset.zero
+    var canMoveOffscreen = true
+
+    // Style
     var color = NSColor.yellow
     var alpha = 0.2
-    var cornerRadius = 12.0
-    var canMoveOffscreen = true
+    var cornerRadius = 6.0
+    var hasShadow = true
+
+    // Behavior
     var joinsAllSpaces = true
 }
+

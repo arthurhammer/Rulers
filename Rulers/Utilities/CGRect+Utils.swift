@@ -6,14 +6,17 @@ extension CGRect {
         get { return origin.x }
         mutating set { origin.x = newValue }
     }
+
     var y: CGFloat {
         get { return origin.y }
         mutating set { origin.y = newValue }
     }
+
     var width: CGFloat {
         get { return size.width }
         mutating set { size.width = newValue }
     }
+
     var height: CGFloat {
         get { return size.height }
         mutating set { size.height = newValue }
@@ -33,6 +36,7 @@ extension CGRect {
     }
 
     func clamped(to rect: CGRect) -> CGRect {
+        if rect.isInfinite { return self }
         let r = rect.standardized
 
         let nw = width.clamped(to: 0 ... r.width)
