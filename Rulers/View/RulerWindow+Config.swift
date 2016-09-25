@@ -3,7 +3,7 @@ import Cocoa
 extension RulerWindow {
 
     func apply(config: WindowConfig) {
-        applyStyle(for: config)
+        applyStyle(for: config)  // This shouldn't be done on every mouse move
         applyPosition(for: config)
     }
 

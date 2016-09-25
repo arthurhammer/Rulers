@@ -1,26 +1,25 @@
 import Cocoa
 
-
 final class EventMonitor {
 
     enum Scope {
         case local
         case global
-        case localAndGlobal
+        case any
     }
 
     typealias Handler = (NSEvent) -> ()
     
     fileprivate var monitors = [Any]()
     fileprivate let scope: Scope
-    fileprivate let mask: NSEventMask
+    fileprivate let events: NSEventMask
     fileprivate let handler: Handler
 
 
     /// Event monitoring automatically  stops when the instance is dealloced.
-    init(scope: Scope, mask: NSEventMask, handler: @escaping Handler) {
+    init(events: NSEventMask, scope: Scope, handler: @escaping Handler) {
         self.scope = scope
-        self.mask = mask
+        self.events = events
         self.handler = handler
     }
     
@@ -45,11 +44,11 @@ fileprivate extension EventMonitor {
     func addMonitors() {
         switch scope {
 
-        case .local, .localAndGlobal:
+        case .local, .any:
             addLocalMonitor()
             fallthrough
 
-        case .global, .localAndGlobal:
+        case .global, .any:
             addGlobalMonitor()
         }
     }
@@ -61,13 +60,13 @@ fileprivate extension EventMonitor {
 
     func addLocalMonitor() {
         monitors.append(
-            NSEvent.addLocalMonitorForEvents(matching: mask, handler: localHandler)
+            NSEvent.addLocalMonitorForEvents(matching: events, handler: localHandler)
         )
     }
 
     func addGlobalMonitor() {
         monitors.append(
-            NSEvent.addGlobalMonitorForEvents(matching: mask, handler: handler)
+            NSEvent.addGlobalMonitorForEvents(matching: events, handler: handler)
         )
     }
 
