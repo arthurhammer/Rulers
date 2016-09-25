@@ -15,5 +15,5 @@ struct WindowConfig {
 
     // Behavior
     var joinsAllSpaces = true
+    var ignoresMouseEvents = true
 }
-

@@ -4,28 +4,27 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet private weak var window: NSWindow!
-
+    private var mouse: Mouse!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let window = self.window as! RulerWindow
 
-        window.setFrame(
-            NSRect(x: 500, y: 500, width: 600, height: 200),
-            display: true)
-
-        var config = WindowConfig()
+        var config = Preset().config
         config.hasShadow = true
         config.size.width = 800
+        config.size.height = 120
+        config.alpha = 0.10
+        config.mouseOffset.y = 30
+        config.canMoveOffscreen = false
 
         window.apply(config: config)
+        mouse = Mouse { _ in
+            window.apply(config: config)
+        }
+        mouse.start()
 
-        window.isMovableByWindowBackground = true  
-        window.makeKeyAndOrderFront(nil)
-
-        // border with transparent window (frame)
-        // movable by dragging, does not follow mouse
-        // COMMIT!!! Growing again!!
-        // Length: what if we want to resize with mouse? resizable?
+        // window.isMovableByWindowBackground = true
+        // window.makeKeyAndOrderFront(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

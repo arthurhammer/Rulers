@@ -9,6 +9,7 @@ extension RulerWindow {
 
     func applyStyle(for config: WindowConfig) {
         collectionBehavior = config.joinsAllSpaces ? .canJoinAllSpaces : []
+        ignoresMouseEvents = config.ignoresMouseEvents
         hasShadow = config.hasShadow
         alphaValue = config.alpha.cg
         backgroundColor = .clear
@@ -24,7 +25,7 @@ extension RulerWindow {
 
         let newFrame = frame(for: config,
                              screenFrame: screen.frame,
-                             mouseLocation: screen.frame.center)  // FIXME
+                             mouseLocation: Mouse.location())  // FIXME: Extract screen/mouse
         setFrame(newFrame, display: true)
     }
 
