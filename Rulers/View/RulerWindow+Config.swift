@@ -1,50 +1,46 @@
 import Cocoa
 
+// FIXME: Refactoring + Cleanup, rethink this API
+
 extension RulerWindow {
 
-    func apply(config: WindowConfig) {
-        applyStyle(for: config)  // This shouldn't be done on every mouse move
-        applyPosition(for: config)
-    }
-
-    func applyStyle(for config: WindowConfig) {
+    func updateStyle(for config: WindowConfig) {
         level = NSWindow.level(for: .overlayWindow)  // CONFIG
         collectionBehavior = [.stationary]
         if config.joinsAllSpaces {
             collectionBehavior.insert(.canJoinAllSpaces)
         }
+
         ignoresMouseEvents = config.ignoresMouseEvents
         hasShadow = config.hasShadow
         alphaValue = config.alpha.cg
         backgroundColor = .clear
+
+        // FIXME: Only two things that make it RulerWindow specific. Could just extend NSWindow?
         rulerView.backgroundColor = config.color.withAlphaComponent(1)
         rulerView.cornerRadius = config.cornerRadius
     }
 
-    func applyPosition(for config: WindowConfig) {
-        guard let screen = screen else {  // FIXME: Extract screen/mouse handling?
-            Swift.print("No screen found.")
-            return
-        }
+    func updatePosition(forConfig config: WindowConfig,
+                        mouseLocation: CGPoint,
+                        screenFrame: CGRect) {
 
-        let newFrame = frame(for: config,
-                             screenFrame: screen.frame,
-                             mouseLocation: Mouse.location())  // FIXME: Extract screen/mouse
-        setFrame(newFrame, display: true)
+        setFrame(frame(for: config,
+                       mouseLocation: mouseLocation,
+                       screenFrame: screenFrame),
+                 display: true)
     }
 
     func frame(for config: WindowConfig,
-               screenFrame: CGRect,
-               mouseLocation: CGPoint) -> CGRect {
+               mouseLocation: CGPoint,
+               screenFrame: CGRect) -> CGRect {
 
         let size = config.size.resolve(with: screenFrame.size)
-        let center = mouseLocation
-        let offset = config.mouseOffset
         let clamping = config.canMoveOffscreen ? .infinite : screenFrame
 
         return CGRect(origin: .zero, size: size)
-            .centered(at: center)
-            .offset(by: offset)
+            .centered(at: mouseLocation)
+            .offset(by: config.mouseOffset)
             .clamped(to: clamping)
             .integral
     }

@@ -3,25 +3,21 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet private weak var window: NSWindow!
-    private var mouse: Mouse!
+    private var rulerController: RulerWindowController!
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let window = self.window as! RulerWindow
+        var preset = Preset()
 
-        var config = Preset().config
-        config.hasShadow = true
-        config.size.width = 800
-        config.size.height = 120
-        config.alpha = 0.10
-        config.mouseOffset.y = 30
-        config.canMoveOffscreen = false
+        preset.config.hasShadow = true
+        preset.config.size.width = 800
+        preset.config.size.height = 120
+        preset.config.alpha = 0.10
+        preset.config.mouseOffset.y = 30
+        preset.config.canMoveOffscreen = false
 
-        window.apply(config: config)
-        mouse = Mouse { _ in
-            window.apply(config: config)
-        }
-        mouse.start()
+        rulerController = RulerWindowController(preset: preset)
+        rulerController.rulerEnabled = true
 
         // window.isMovableByWindowBackground = true
         // window.makeKeyAndOrderFront(nil)
