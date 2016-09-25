@@ -8,7 +8,11 @@ extension RulerWindow {
     }
 
     func applyStyle(for config: WindowConfig) {
-        collectionBehavior = config.joinsAllSpaces ? .canJoinAllSpaces : []
+        level = NSWindow.level(for: .overlayWindow)  // CONFIG
+        collectionBehavior = [.stationary]
+        if config.joinsAllSpaces {
+            collectionBehavior.insert(.canJoinAllSpaces)
+        }
         ignoresMouseEvents = config.ignoresMouseEvents
         hasShadow = config.hasShadow
         alphaValue = config.alpha.cg

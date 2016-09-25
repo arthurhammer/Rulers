@@ -22,6 +22,7 @@
 		0064F7481D95D83F002E82B0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7471D95D83F002E82B0 /* Preset.swift */; };
 		006769FC1D97B75C0097D630 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FA1D97B75C0097D630 /* EventMonitor.swift */; };
 		006769FD1D97B75C0097D630 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FB1D97B75C0097D630 /* Mouse.swift */; };
+		00676A001D97C8510097D630 /* NSWindow+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FF1D97C8510097D630 /* NSWindow+Level.swift */; };
 		00BDA8341D9671CA00C54740 /* RulerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BDA8331D9671CA00C54740 /* RulerWindow.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		0064F7471D95D83F002E82B0 /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		006769FA1D97B75C0097D630 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		006769FB1D97B75C0097D630 /* Mouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
+		006769FF1D97C8510097D630 /* NSWindow+Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Level.swift"; sourceTree = "<group>"; };
 		00BDA8301D96668E00C54740 /* play.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = play.playground; sourceTree = "<group>"; };
 		00BDA8331D9671CA00C54740 /* RulerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 				002652691D96A23300C13637 /* CG+Utils.swift */,
 				002652711D96DEB400C13637 /* CGRect+Utils.swift */,
 				002652731D96DEDA00C13637 /* Comparable+Clamped.swift */,
+				006769FF1D97C8510097D630 /* NSWindow+Level.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				006769FC1D97B75C0097D630 /* EventMonitor.swift in Sources */,
 				0026526A1D96A23300C13637 /* CG+Utils.swift in Sources */,
 				00BDA8341D9671CA00C54740 /* RulerWindow.swift in Sources */,
+				00676A001D97C8510097D630 /* NSWindow+Level.swift in Sources */,
 				0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */,
 				006769FD1D97B75C0097D630 /* Mouse.swift in Sources */,
 				002652741D96DEDA00C13637 /* Comparable+Clamped.swift in Sources */,
