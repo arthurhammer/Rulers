@@ -30,7 +30,6 @@ final class EventMonitor {
     func start() {
         stop()
         addMonitors()
-        
     }
     
     func stop() {

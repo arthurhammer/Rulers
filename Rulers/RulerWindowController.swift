@@ -8,7 +8,7 @@ class RulerWindowController: NSWindowController, NSWindowDelegate {
 
     /// Designated method to show or hide the ruler.
     var rulerEnabled = true {
-        didSet { showOrHideWindow() }
+        didSet { showOrHideRuler() }
     }
 
     fileprivate lazy var mouse: Mouse = {
@@ -39,7 +39,7 @@ class RulerWindowController: NSWindowController, NSWindowDelegate {
 
 fileprivate extension RulerWindowController {
 
-    fileprivate var ruler: RulerWindow {
+    var ruler: RulerWindow {
         // Window exists as long as controller does and type is fixed.
         return window as! RulerWindow
     }
@@ -52,10 +52,9 @@ fileprivate extension RulerWindowController {
     }
 
     func updateRulerStyle() {
-        if !isWindowLoaded {  // Avoid triggering window load.
-            return
+        if isWindowLoaded {  // Avoid triggering window load.
+            ruler.updateStyle(for: preset.config)
         }
-        ruler.updateStyle(for: preset.config)
     }
 
     func updateRulerPosition() {
@@ -68,7 +67,7 @@ fileprivate extension RulerWindowController {
                              screenFrame: screen.frame)
     }
 
-    func showOrHideWindow() {
+    func showOrHideRuler() {
         if rulerEnabled {
             showWindow(nil)
             mouse.start()
