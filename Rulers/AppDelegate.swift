@@ -4,10 +4,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var rulerController: RulerWindowController!
+    private var statusItemController: StatusItemController!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        var preset = Preset()
+        let presetManager = PresetDataManager()
+        var preset = presetManager.presets.first!
 
         preset.config.hasShadow = true
         preset.config.size.width = 800
@@ -17,10 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         preset.config.canMoveOffscreen = false
 
         rulerController = RulerWindowController(preset: preset)
-        rulerController.rulerEnabled = true
+        statusItemController = StatusItemController(presetDataManager: presetManager)
 
-        // window.isMovableByWindowBackground = true
-        // window.makeKeyAndOrderFront(nil)
+        rulerController.rulerEnabled = true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
