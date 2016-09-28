@@ -5,7 +5,7 @@ struct WindowConfig {
     // Size, position
     var size = Size(width: nil, height: 80)
     var mouseOffset = Offset.zero
-    var canMoveOffscreen = true
+    var canMoveOffscreen = false
 
     // Style
     var color = NSColor.yellow

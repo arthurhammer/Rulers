@@ -47,7 +47,7 @@ fileprivate extension StatusItemController {
     }
 
     func toggleMenuItem() ->  NSMenuItem {
-        return NSMenuItem(title: NSLocalizedString("Disable Rulers", comment: "<FIXME>"),
+        return NSMenuItem(title: NSLocalizedString("Disable Rulers", comment: "Disable app menu item"), 
                           target: self,
                           action: #selector(toggleEnabled))
     }
