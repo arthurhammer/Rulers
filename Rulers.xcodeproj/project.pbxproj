@@ -20,6 +20,7 @@
 		0064F7441D95D37F002E82B0 /* WindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7431D95D37F002E82B0 /* WindowConfig.swift */; };
 		0064F7461D95D808002E82B0 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7451D95D808002E82B0 /* Size.swift */; };
 		0064F7481D95D83F002E82B0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064F7471D95D83F002E82B0 /* Preset.swift */; };
+		006660581D9C05D6001F2FC9 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006660571D9C05D6001F2FC9 /* Preferences.swift */; };
 		006769FC1D97B75C0097D630 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FA1D97B75C0097D630 /* EventMonitor.swift */; };
 		006769FD1D97B75C0097D630 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FB1D97B75C0097D630 /* Mouse.swift */; };
 		00676A001D97C8510097D630 /* NSWindow+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006769FF1D97C8510097D630 /* NSWindow+Level.swift */; };
@@ -70,6 +71,7 @@
 		0064F7431D95D37F002E82B0 /* WindowConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowConfig.swift; sourceTree = "<group>"; };
 		0064F7451D95D808002E82B0 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		0064F7471D95D83F002E82B0 /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		006660571D9C05D6001F2FC9 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		006769FA1D97B75C0097D630 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		006769FB1D97B75C0097D630 /* Mouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
 		006769FF1D97C8510097D630 /* NSWindow+Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Level.swift"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				0064F7191D95CDF7002E82B0 /* AppDelegate.swift */,
 				0064F71D1D95CDF7002E82B0 /* MainMenu.xib */,
+				006660571D9C05D6001F2FC9 /* Preferences.swift */,
 				00676A0F1D9931370097D630 /* PresetDataManager.swift */,
 				00676A0D1D9930F50097D630 /* StatusItemController.swift */,
 				00676A0B1D985C320097D630 /* RulerWindowController.swift */,
@@ -357,6 +360,7 @@
 				006769FC1D97B75C0097D630 /* EventMonitor.swift in Sources */,
 				0026526A1D96A23300C13637 /* CG+Utils.swift in Sources */,
 				00676A021D97DF400097D630 /* NSEventMask+Mouse.swift in Sources */,
+				006660581D9C05D6001F2FC9 /* Preferences.swift in Sources */,
 				00BDA8341D9671CA00C54740 /* RulerWindow.swift in Sources */,
 				00676A001D97C8510097D630 /* NSWindow+Level.swift in Sources */,
 				0064F71A1D95CDF7002E82B0 /* AppDelegate.swift in Sources */,
