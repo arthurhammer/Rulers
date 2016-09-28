@@ -58,15 +58,27 @@ fileprivate extension EventMonitor {
     }
 
     func addLocalMonitor() {
-        monitors.append(
-            NSEvent.addLocalMonitorForEvents(matching: events, handler: localHandler)
-        )
+        let m = NSEvent.addLocalMonitorForEvents(matching: events, handler: localHandler)
+
+        // API returns optional `Any?` but documentation doesn't mention when it would be nil. 👎🏼
+        guard let monitor = m else {
+            print("`NSEvent.addLocalMonitor` unexpectedly returned nil. Ignoring.")
+            return
+        }
+
+        monitors.append(monitor)
     }
 
     func addGlobalMonitor() {
-        monitors.append(
-            NSEvent.addGlobalMonitorForEvents(matching: events, handler: handler)
-        )
+        let m = NSEvent.addGlobalMonitorForEvents(matching: events, handler: handler)
+
+        // As above.
+        guard let monitor = m else {
+            print("`NSEvent.addGlobalMonitor` unexpectedly returned nil. Ignoring.")
+            return
+        }
+
+        monitors.append(monitor)
     }
 
     var localHandler: (NSEvent) -> NSEvent {
