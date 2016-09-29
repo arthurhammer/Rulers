@@ -17,3 +17,20 @@ struct WindowConfig {
     var joinsAllSpaces = true
     var ignoresMouseEvents = true
 }
+
+
+extension WindowConfig: Equatable {
+    static func == (l: WindowConfig, r: WindowConfig) -> Bool {
+        return
+            l.size == r.size &&
+            l.mouseOffset == r.mouseOffset &&
+            l.canMoveOffscreen == r.canMoveOffscreen &&
+            l.color == r.color &&
+            l.alpha == r.alpha &&
+            l.cornerRadius == r.cornerRadius &&
+            l.hasShadow == r.hasShadow &&
+            l.joinsAllSpaces == r.joinsAllSpaces &&
+            l.ignoresMouseEvents == r.ignoresMouseEvents
+    }
+}
+
