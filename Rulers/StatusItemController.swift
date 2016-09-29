@@ -1,6 +1,6 @@
 import Cocoa
 
-class StatusItemController { 
+final class StatusItemController {
 
     var statusItem: NSStatusItem
     fileprivate var dataManager: PresetDataManager

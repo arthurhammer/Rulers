@@ -16,7 +16,7 @@ final class EventMonitor {
     fileprivate let handler: Handler
 
 
-    /// Event monitoring automatically  stops when the instance is dealloced.
+    /// Event monitoring automatically stops when the instance is dealloced.
     init(events: NSEventMask, scope: Scope, handler: @escaping Handler) {
         self.scope = scope
         self.events = events
