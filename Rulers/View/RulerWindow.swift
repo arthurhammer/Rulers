@@ -19,7 +19,7 @@
 import Cocoa
 
 /// Intented to be used with `RulerView` as content view.
-final class RulerWindow: NSWindow {
+final class RulerWindow: NSPanel {
 
     var rulerView: RulerView {
         return contentView as! RulerView
@@ -39,7 +39,7 @@ final class RulerWindow: NSWindow {
                   defer flag: Bool) {
 
         super.init(contentRect: contentRect,
-                   styleMask: .borderless,  // borderless
+                   styleMask: [.borderless, .nonactivatingPanel],
                    backing: bufferingType,
                    defer: flag)
 
