@@ -1,6 +1,6 @@
 import Cocoa
 
-// FIXME: Refactoring + Cleanup, rethink this API
+// FIXME: Refactoring + Cleanup
 
 extension RulerWindow {
 
@@ -16,7 +16,6 @@ extension RulerWindow {
         alphaValue = config.alpha.cg
         backgroundColor = .clear
 
-        // FIXME: Only two things that make it RulerWindow specific. Could just extend NSWindow?
         rulerView.backgroundColor = config.color.withAlphaComponent(1)
         rulerView.cornerRadius = config.cornerRadius
     }

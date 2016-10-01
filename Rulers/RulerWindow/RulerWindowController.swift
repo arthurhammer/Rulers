@@ -1,23 +1,25 @@
 import Cocoa
 
-class RulerWindowController: NSWindowController, NSWindowDelegate {
+final class RulerWindowController: NSWindowController, NSWindowDelegate {
 
     var preset: Preset {
         didSet { updateRuler() }
     }
 
     /// Designated method to show or hide the ruler.
-    var rulerEnabled = true {
+    var enabled = true {
         didSet { showOrHideRuler() }
     }
 
     fileprivate lazy var mouse: Mouse = {
-        return Mouse(onMove: { [weak self] _ in
+        return Mouse(onMove: { [weak self] l in
             self?.updateRulerPosition()
         })
     }()
 
-    override var windowNibName: String { return "RulerWindow" }
+    override var windowNibName: String {
+        return "RulerWindow"
+    }
 
 
     /// Designated initalizer
@@ -44,15 +46,14 @@ fileprivate extension RulerWindowController {
         return window as! RulerWindow
     }
 
-    // FIXME: Refactor
-
     func updateRuler() {
         updateRulerStyle()
         updateRulerPosition()
     }
 
     func updateRulerStyle() {
-        if isWindowLoaded {  // Avoid triggering window load.
+        // Avoid triggering window load.
+        if isWindowLoaded {
             ruler.updateStyle(for: preset.config)
         }
     }
@@ -68,7 +69,7 @@ fileprivate extension RulerWindowController {
     }
 
     func showOrHideRuler() {
-        if rulerEnabled {
+        if enabled {
             showWindow(nil)
             mouse.start()
         } else {

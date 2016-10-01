@@ -3,13 +3,11 @@ import Foundation
 typealias Offset = CGPoint
 
 
-/**
- A size with optional width/height.
-
- Non-optional values denote fixed width/heights.
- `nil` denotes an unspecified value, in this case the screen's 
- (dynamic) width/height.
- */
+/// A size with optional width/height.
+///
+/// Non-optional values denote fixed width/heights.
+/// `nil` denotes an unspecified value, in this case the screen's
+/// (dynamic) width/height.
 struct Size {
     var width: Double?
     var height: Double?
