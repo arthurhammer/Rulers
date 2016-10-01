@@ -2,11 +2,13 @@ import Foundation
 import class AppKit.NSColor
 
 extension Preset {
+
     static let defaults = [
         Preset(
             name: NSLocalizedString("Default Preset", comment: "Name of default preset"),
             config: WindowConfig()
         ),
+
         Preset(
             name: NSLocalizedString("Reading Ruler", comment: "Name of reading ruler preset"),
             config: WindowConfig(
@@ -21,6 +23,7 @@ extension Preset {
                 ignoresMouseEvents: true
             )
         ),
+
         Preset(
             name: NSLocalizedString("Box", comment: "Name of box preset"),
             config: WindowConfig(

@@ -6,7 +6,7 @@ struct Preset {
     var config = WindowConfig()
 
 
-    init(id: String = NSUUID().uuidString,  // FIXME: Should this be assigned here?
+    init(id: String = NSUUID().uuidString,
          name: String = NSLocalizedString("New Preset", comment: "Name of new preset"),
          config: WindowConfig = WindowConfig()) {
 
@@ -19,9 +19,6 @@ struct Preset {
 
 extension Preset: Equatable {
     static func == (lhs: Preset, rhs: Preset) -> Bool {
-        return
-            lhs.id == rhs.id
-            lhs.name == rhs.name &&
-            lhs.config == rhs.config
+        return (lhs.id == rhs.id) && (lhs.name == rhs.name) && (lhs.config == rhs.config)
     }
 }

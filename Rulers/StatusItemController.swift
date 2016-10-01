@@ -2,77 +2,97 @@ import Cocoa
 
 final class StatusItemController {
 
-    var statusItem: NSStatusItem
-    fileprivate var dataManager: PresetDataManager
+    fileprivate lazy var statusItem: NSStatusItem = {
+        let item = NSStatusBar.addStatusItem()
+        item.menu = self.menu()
+        item.button?.title = InterfaceString.app
+        return item
+    }()
+
+    fileprivate var presets: Presets
 
 
-    init(presetDataManager: PresetDataManager) {
-        self.dataManager = presetDataManager
-        statusItem = NSStatusBar.addStatusItem()
-        statusItem.menu = menu()
-        statusItem.button?.title = NSLocalizedString("Rulers", comment: "Name of app")
+    init(presets: Presets) {
+        self.presets = presets
+        presets.add(subscriber: self)
+    }
+
+    func addStatusItem() {
+        _ = statusItem  // Trigger lazy load
     }
 }
 
 
-// MARK: - Menu
-
 fileprivate extension StatusItemController {
 
-    struct PresetMenuInfo {
-        let index: Int
+    // MARK: - Menu
+
+    func updateMenu() {
+        // FIXME: This should be done lazily when the menu is about to be displayed
+        statusItem.menu = menu()
     }
 
     func menu() -> NSMenu {
         let menu = NSMenu()
-        menu.addItem(toggleMenuItem())
+        menu.autoenablesItems = false
+
+        menu.addItem(toggleEnabledItem(forState: presets.enabled))
         menu.addItem(.separator())
-        menu.addItems(menuItems(for: dataManager.presets))
+        menu.addItems(presets.presets.map(presetItem))
         menu.addItem(.separator())
-        menu.addItem(quitMenuItem())
+        menu.addItem(quitItem())
+
         return menu
     }
 
-    func menuItems(for presets: [Preset]) -> [NSMenuItem] {
-        return presets.enumerated().map { menuItem(for: $1, at: $0) }
-    }
-
-    func menuItem(for preset: Preset, at index: Int) -> NSMenuItem {
+     func presetItem(for preset: Preset) -> NSMenuItem {
         let item = NSMenuItem(title: preset.name,
                               target: self,
                               action: #selector(selectedPreset))
-        item.selected = (index == dataManager.indexOfActivePreset)
-        item.representedObject = PresetMenuInfo(index: index)
+        item.selected = (preset == presets.active)
+        item.isEnabled = presets.enabled
+        item.representedObject = preset
         return item
     }
 
-    func toggleMenuItem() ->  NSMenuItem {
-        return NSMenuItem(title: NSLocalizedString("Disable Rulers", comment: "Disable app menu item"), 
+    func toggleEnabledItem(forState enabled: Bool) ->  NSMenuItem {
+        let title = enabled
+            ? InterfaceString.StatusItem.disable
+            : InterfaceString.StatusItem.enable
+
+        return NSMenuItem(title: title,
                           target: self,
                           action: #selector(toggleEnabled))
     }
 
-    func quitMenuItem() -> NSMenuItem {
-        return NSMenuItem(title: NSLocalizedString("Quit Rulers", comment: "Quit app menu item"),
+    func quitItem() -> NSMenuItem {
+        return NSMenuItem(title: InterfaceString.StatusItem.quit,
                           action: #selector(NSApp.terminate),
                           keyEquivalent: "q")
+    }
+
+    // MARK: - Actions
+
+    @objc  // for target-action
+    func toggleEnabled() {
+        presets.setEnabled(!presets.enabled)
+    }
+
+    @objc
+    func selectedPreset(_ sender: NSMenuItem) {
+        if let preset = sender.representedObject as? Preset {
+            presets.setActive(preset: preset)
+        }
     }
 }
 
 
-// MARK: - Actions
-
-fileprivate extension StatusItemController {
-
-    // (`@objc` for target-action)
-
-    @objc func toggleEnabled() {
-        // FIXME: Unimplemented
+extension StatusItemController: PresetsSubscriber {
+    func presets(_ presets: Presets, didActivate preset: Preset, at index: Int) {
+        updateMenu()
     }
 
-    @objc func selectedPreset(_ sender: NSMenuItem) {
-        if let info = sender.representedObject as? PresetMenuInfo {
-            dataManager.indexOfActivePreset = info.index
-        }
+    func presets(_ presets: Presets, didChangeEnabled enabled: Bool) {
+        updateMenu()
     }
 }

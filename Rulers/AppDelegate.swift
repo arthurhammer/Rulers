@@ -3,27 +3,30 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    private var rulerController: RulerWindowController!
-    private var statusItemController: StatusItemController!
+    fileprivate lazy var presets = Presets(store: .standard)
+    fileprivate lazy var statusItemController: StatusItemController =
+        StatusItemController(presets: self.presets)
+    fileprivate lazy var rulerController: RulerWindowController =
+        RulerWindowController(preset: self.presets.active!)
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let presetManager = PresetDataManager()
-        var preset = presetManager.presets.first!
-
-        preset.config.hasShadow = true
-        preset.config.size.width = 800
-        preset.config.size.height = 120
-        preset.config.alpha = 0.10
-        preset.config.mouseOffset.y = 30
-        preset.config.canMoveOffscreen = false
-
-        rulerController = RulerWindowController(preset: preset)
-        statusItemController = StatusItemController(presetDataManager: presetManager)
-
-        rulerController.rulerEnabled = true
+        presets.add(subscriber: self)
+        statusItemController.addStatusItem()
+        rulerController.enabled = true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+    }
+}
+
+
+extension AppDelegate: PresetsSubscriber {
+    func presets(_ presets: Presets, didActivate preset: Preset, at index: Int) {
+        rulerController.preset = preset
+    }
+
+    func presets(_ presets: Presets, didChangeEnabled enabled: Bool) {
+        rulerController.enabled = enabled
     }
 }
