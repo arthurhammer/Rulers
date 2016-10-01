@@ -7,7 +7,7 @@ extension WindowConfig: PropertyListSerializable {
         return [
             "size": size.propertyListValue,
             "mouseOffset": NSValue(point: mouseOffset).archived(),
-            "canMoveOffscreen": false,
+            "canMoveOffscreen": canMoveOffscreen,
             "color": color.archived(),
             "alpha": alpha,
             "cornerRadius": cornerRadius,

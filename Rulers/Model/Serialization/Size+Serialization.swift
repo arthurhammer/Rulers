@@ -11,7 +11,7 @@ extension Size: PropertyListSerializable {
     init?(propertyList: PropertyList) {
         let p = propertyList
         let width = p["width"] as? Double
-        let height = p["width"] as? Double
+        let height = p["height"] as? Double
         self = Size(width: width, height: height)
     }
 }

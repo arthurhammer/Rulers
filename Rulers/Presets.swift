@@ -4,8 +4,8 @@ import Foundation
 /// Invariant: Presets have unique ids.
 final class Presets: Subscribable {
 
-    fileprivate(set) var presets = Preset.defaults
-    fileprivate(set) lazy var active: Preset? = self.presets.first
+    fileprivate(set) var presets = [Preset]()
+    fileprivate(set) var active: Preset?
     fileprivate(set) var enabled = true
 
     fileprivate var store: UserDefaults
@@ -15,6 +15,8 @@ final class Presets: Subscribable {
 
     init(store: UserDefaults) {
         self.store = store
+        registerDefaults()
+        load()
     }
 
 
@@ -75,12 +77,36 @@ final class Presets: Subscribable {
 
 fileprivate extension Presets {
 
-    func save() {
-        print("Saving")
-        // FIXME: Unimplemented
+    struct StoreKey {
+        static let presets = "presets"
+        static let enabled = "enabled"
+        static let activePresetId = "activePresetId"
     }
 
-    /// Index of the first preset with the same `id`. 
+    func registerDefaults() {
+        store.register(defaults: [
+            StoreKey.enabled: true,
+            StoreKey.presets: Preset.defaults.map { $0.propertyListValue },
+            StoreKey.activePresetId: Preset.defaults.first?.id ?? "nil"
+        ])
+    }
+
+    func save() {
+        store.set(enabled, forKey: StoreKey.enabled)
+        store.set(presets.map { $0.propertyListValue }, forKey: StoreKey.presets)
+        store.set(active?.id, forKey: StoreKey.activePresetId)
+    }
+
+    func load() {
+        enabled = store.bool(forKey: StoreKey.enabled)
+        presets = (store.array(forKey: StoreKey.presets) ?? [])
+            .flatMap { $0 as? PropertyList }
+            .flatMap(Preset.init(propertyList:))
+        let id = store.string(forKey: StoreKey.activePresetId)
+        active = presets.first { $0.id == id }
+    }
+
+    /// Index of the first preset with the same id.
     func index(forIdOf preset: Preset) -> Int? {
         return presets.index { $0.id == preset.id }
     }
