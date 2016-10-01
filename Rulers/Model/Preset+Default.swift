@@ -5,12 +5,12 @@ extension Preset {
 
     static let defaults = [
         Preset(
-            name: NSLocalizedString("Default Preset", comment: "Name of default preset"),
+            name: InterfaceString.Preset.default,
             config: WindowConfig()
         ),
 
         Preset(
-            name: NSLocalizedString("Reading Ruler", comment: "Name of reading ruler preset"),
+            name: InterfaceString.Preset.line,
             config: WindowConfig(
                 size: Size(width: nil, height: 1),
                 mouseOffset: Offset(x: 0, y: 7),
@@ -25,15 +25,30 @@ extension Preset {
         ),
 
         Preset(
-            name: NSLocalizedString("Box", comment: "Name of box preset"),
+            name: InterfaceString.Preset.box,
             config: WindowConfig(
                 size: Size(width: 600, height: 200),
                 mouseOffset: .zero,
                 canMoveOffscreen: true,
-                color: .gray,
-                alpha: 0.3,
+                color: .lightGray,
+                alpha: 0.2,
                 cornerRadius: 12,
                 hasShadow: true,
+                joinsAllSpaces: true,
+                ignoresMouseEvents: true
+            )
+        ),
+
+        Preset(
+            name: InterfaceString.Preset.night,
+            config: WindowConfig(
+                size: Size(width: nil, height: nil),
+                mouseOffset: .zero,
+                canMoveOffscreen: false,
+                color: .black,
+                alpha: 0.5,
+                cornerRadius: 0,
+                hasShadow: false,
                 joinsAllSpaces: true,
                 ignoresMouseEvents: true
             )

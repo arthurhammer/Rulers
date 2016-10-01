@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         presets.add(subscriber: self)
         statusItemController.addStatusItem()
-        rulerController.enabled = true
+        rulerController.enabled = presets.enabled
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

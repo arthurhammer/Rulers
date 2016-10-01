@@ -3,8 +3,8 @@ import class AppKit.NSColor
 
 struct WindowConfig {
     // Size, position
-    var size = Size(width: nil, height: 80)
-    var mouseOffset = Offset.zero
+    var size = Size(width: nil, height: 70)
+    var mouseOffset = Offset(x: 0, y: 30)
     var canMoveOffscreen = false
 
     // Style

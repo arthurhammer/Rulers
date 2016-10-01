@@ -31,9 +31,7 @@ final class Subscribers<T>: SubscriptionProvider {
     }
 
     func notify(with block: (T) -> ()) {
-        subscribers.allObjects
-            .map { $0 as! T }
-            .forEach(block)
+        subscribers.allObjects.forEach { block($0 as! T) }
     }
 }
 
