@@ -12,7 +12,7 @@ extension Preset {
         Preset(
             name: InterfaceString.Preset.line,
             config: WindowConfig(
-                size: Size(width: nil, height: 1),
+                size: CGSize(width: .screen, height: 1),
                 mouseOffset: Offset(x: 0, y: 7),
                 canMoveOffscreen: false,
                 color: NSColor(red: 253/255, green: 73/255, blue: 108/255, alpha: 1),
@@ -27,7 +27,7 @@ extension Preset {
         Preset(
             name: InterfaceString.Preset.box,
             config: WindowConfig(
-                size: Size(width: 600, height: 200),
+                size: CGSize(width: 600, height: 200),
                 mouseOffset: .zero,
                 canMoveOffscreen: true,
                 color: .lightGray,
@@ -42,7 +42,7 @@ extension Preset {
         Preset(
             name: InterfaceString.Preset.night,
             config: WindowConfig(
-                size: Size(width: nil, height: nil),
+                size: CGSize(width: .screen, height: .screen),
                 mouseOffset: .zero,
                 canMoveOffscreen: false,
                 color: .black,

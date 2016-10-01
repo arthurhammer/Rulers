@@ -34,7 +34,7 @@ extension RulerWindow {
                mouseLocation: CGPoint,
                screenFrame: CGRect) -> CGRect {
 
-        let size = config.size.resolve(with: screenFrame.size)
+        let size = config.size.resolved(with: screenFrame.size)
         let clamping = config.canMoveOffscreen ? .infinite : screenFrame
 
         return CGRect(origin: .zero, size: size)

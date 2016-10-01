@@ -1,6 +1,6 @@
 import Foundation
 
-extension Preset: PropertyListSerializable {
+extension Preset: PropertyListRepresentable {
 
     var propertyListValue: PropertyList {
         return [
