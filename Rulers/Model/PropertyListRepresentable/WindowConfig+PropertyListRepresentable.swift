@@ -1,12 +1,12 @@
 import Foundation
 import class AppKit.NSColor
 
-extension WindowConfig: PropertyListSerializable {
+extension WindowConfig: PropertyListRepresentable {
 
     var propertyListValue: PropertyList {
         return [
             "size": size.propertyListValue,
-            "mouseOffset": NSValue(point: mouseOffset).archived(),
+            "mouseOffset": mouseOffset.propertyListValue,
             "canMoveOffscreen": canMoveOffscreen,
             "color": color.archived(),
             "alpha": alpha,
@@ -21,8 +21,8 @@ extension WindowConfig: PropertyListSerializable {
         let p = propertyList
 
         guard
-            let size = (p["size"] as? PropertyList).flatMap(Size.init(propertyList:)),
-            let mouseOffset = (p["mouseOffset"] as? Data).flatMap(NSValue.unarchived)?.pointValue,
+            let size = (p["size"] as? PropertyList).flatMap(CGSize.init(propertyList:)),
+            let mouseOffset = (p["mouseOffset"] as? PropertyList).flatMap(Offset.init(propertyList:)),
             let canMoveOffscreen = p["canMoveOffscreen"] as? Bool,
             let color = (p["color"] as? Data).flatMap(NSColor.unarchived),
             let alpha = p["alpha"] as? Double,
